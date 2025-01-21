@@ -20,9 +20,8 @@ public class TaskServiceImpl implements TaskService {
     
     @Override
     public Task getTaskById(Long id) {
-        // TODO: Implement method to find and return task by ID
-        // TODO: Throw TaskNotFoundException if task not found
-        return null;
+        return taskRepository.findById(id)
+            .orElseThrow(() -> new TaskNotFoundException("Task not found with id: " + id));
     }
     
     @Override
@@ -32,14 +31,16 @@ public class TaskServiceImpl implements TaskService {
     
     @Override
     public Task updateTask(Long id, Task task) {
-        // TODO: Implement method to update existing task
-        // TODO: Throw TaskNotFoundException if task not found
-        return null;
+        Task existingTask = getTaskById(id);
+        existingTask.setTitle(task.getTitle());
+        existingTask.setDescription(task.getDescription());
+        existingTask.setCompleted(task.isCompleted());
+        return taskRepository.save(existingTask);
     }
     
     @Override
     public void deleteTask(Long id) {
-        // TODO: Implement method to delete task
-        // TODO: Throw TaskNotFoundException if task not found
+        Task task = getTaskById(id);
+        taskRepository.delete(task);
     }
 }
