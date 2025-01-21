@@ -29,8 +29,8 @@ public class TaskController {
 
     @PostMapping
     public ResponseEntity<Task> createTask(@RequestBody Task task) {
-        // TODO: Implement endpoint to create new task
-        return null;
+        Task createdTask = taskService.createTask(task);
+        return ResponseEntity.ok(createdTask);
     }
 
     @PutMapping("/{id}")
