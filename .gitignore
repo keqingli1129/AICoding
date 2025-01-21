@@ -1,6 +1,6 @@
 .aider*
 testing*
-aider-ai/HELP.md
+aider-ai/
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
