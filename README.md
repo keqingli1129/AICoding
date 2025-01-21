@@ -81,7 +81,7 @@ Access the Swagger UI documentation at:
 - `http://localhost:8080/swagger-ui.html`
 
 Access the OpenAPI specification at:
-- `http://localhost:8080/api-docs`
+- `http://localhost:8080/v3/api-docs`
 
 ### Database
 The application uses H2 in-memory database.
